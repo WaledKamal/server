@@ -6,16 +6,21 @@ const data = require("./data.json");
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+next();
 
   res.json(data);
 });
 
 app.post("/add", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Methods:', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+next();
 
   const newData = req.body;
   const allData = [...data, newData];
@@ -26,9 +31,11 @@ app.post("/add", (req, res) => {
 });
 
 app.post("/update", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Methods:', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+next();
 
 
   const newData = req.body;
@@ -41,9 +48,11 @@ app.post("/update", (req, res) => {
 });
 
 app.post("/delete", (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', '*');
-    res.setHeader('Access-Control-Allow-Methods:', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+res.setHeader('Access-Control-Allow-Credentials', true);
+next();
 
   const newData = req.body;
   console.log(newData)
