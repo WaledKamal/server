@@ -6,10 +6,12 @@ const data = require("./data.json");
 app.use(express.json());
 
 app.get("/", (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.json(data);
 });
 
 app.post("/add", (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   const newData = req.body;
   const allData = [...data, newData];
   fs.writeFile("./data.json", JSON.stringify(allData), (err) => {
@@ -19,6 +21,7 @@ app.post("/add", (req, res) => {
 });
 
 app.post("/update", (req, res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
   const newData = req.body;
   const allData = data.filter((item) => item.key !== newData.key);
   allData.push(newData);
@@ -29,6 +32,8 @@ app.post("/update", (req, res) => {
 });
 
 app.post("/delete", (req, res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
+
   const newData = req.body;
   const allData = data.filter((item) => item.key !== newData.key);
   fs.writeFile("./data.json", JSON.stringify(allData), (err) => {
