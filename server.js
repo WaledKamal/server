@@ -15,6 +15,7 @@ app.get("/", (req, res) => {
 app.post("/add", (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Methods:', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
 
   const newData = req.body;
   const allData = [...data, newData];
@@ -25,8 +26,10 @@ app.post("/add", (req, res) => {
 });
 
 app.post("/update", (req, res) => {
-      res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Methods:', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
+
 
   const newData = req.body;
   const allData = data.filter((item) => item.key !== newData.key);
@@ -38,8 +41,9 @@ app.post("/update", (req, res) => {
 });
 
 app.post("/delete", (req, res) => {
-      res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
+    res.setHeader('Access-Control-Allow-Methods:', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
 
   const newData = req.body;
   console.log(newData)
