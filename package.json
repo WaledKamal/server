@@ -4,7 +4,7 @@
   "description": "",
   "main": "serverjs",
   "scripts": {
-    "start": "node server.js"
+    "start": "sudo node app.js"
   },
    "keywords": [],
   "author": "",
