@@ -35,6 +35,7 @@ app.post("/delete", (req, res) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
 
   const newData = req.body;
+  console.log(newDaa)
   const allData = data.filter((item) => item.key !== newData.key);
   fs.writeFile("./data.json", JSON.stringify(allData), (err) => {
     if (err) throw err;
